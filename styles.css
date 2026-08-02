@@ -6,7 +6,7 @@
   --muted: #5c6570;
   --line: #d8dde3;
   --accent: #0f766e;
-  --on-accent: #042f2e;
+  --on-accent: #f0fdfa;
   --accent-soft: color-mix(in oklab, var(--accent) 14%, var(--panel));
   --cell: #e8ecef;
   --cell-hover: color-mix(in oklab, var(--accent) 12%, var(--cell));
