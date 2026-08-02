@@ -118,8 +118,8 @@ export class TicTacToeGame {
       return empties[Math.floor(Math.random() * empties.length)];
     }
 
-    // Opening book: take center when free.
-    if (board[4] == null) return 4;
+    // Opening only: empty board → center. Never skip threat/block search later.
+    if (empties.length === 9) return 4;
 
     let bestScore = player === "O" ? -Infinity : Infinity;
     let bestMoves = [];
