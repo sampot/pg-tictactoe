@@ -1,0 +1,281 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f4f5f7;
+  --panel: #ffffff;
+  --text: #14161a;
+  --muted: #5c6570;
+  --line: #d8dde3;
+  --accent: #0f766e;
+  --on-accent: #042f2e;
+  --accent-soft: color-mix(in oklab, var(--accent) 14%, var(--panel));
+  --cell: #e8ecef;
+  --cell-hover: color-mix(in oklab, var(--accent) 12%, var(--cell));
+  --x: #1d4ed8;
+  --o: #b91c1c;
+  --x-glow: color-mix(in oklab, var(--x) 35%, transparent);
+  --o-glow: color-mix(in oklab, var(--o) 35%, transparent);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1216;
+    --panel: #171b21;
+    --text: #e8ecf1;
+    --muted: #9aa3ad;
+    --line: #2a313a;
+    --accent: #2dd4bf;
+    --on-accent: #042f2e;
+    --cell: #1e2530;
+    --cell-hover: #243041;
+    --x: #60a5fa;
+    --o: #f87171;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family:
+    "Iowan Old Style",
+    "Palatino Linotype",
+    Palatino,
+    "Songti TC",
+    "Noto Serif TC",
+    serif;
+  background:
+    radial-gradient(
+      1000px 520px at 8% -8%,
+      color-mix(in oklab, var(--accent) 16%, transparent),
+      transparent 55%
+    ),
+    radial-gradient(
+      800px 420px at 100% 0%,
+      color-mix(in oklab, var(--o) 12%, transparent),
+      transparent 50%
+    ),
+    var(--bg);
+  color: var(--text);
+}
+
+main {
+  width: min(100%, 28rem);
+  margin: 0 auto;
+  padding: 1.25rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.tagline {
+  margin: 0.35rem 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  background: color-mix(in oklab, var(--panel) 92%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.meta p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.meta strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.control-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  color: var(--muted);
+  font-family:
+    "Avenir Next",
+    "Segoe UI",
+    "PingFang TC",
+    "Noto Sans TC",
+    sans-serif;
+  font-size: 0.9rem;
+}
+
+button {
+  font: inherit;
+  font-family:
+    "Avenir Next",
+    "Segoe UI",
+    "PingFang TC",
+    "Noto Sans TC",
+    sans-serif;
+  border: 1px solid transparent;
+  background: var(--accent);
+  color: var(--on-accent);
+  border-radius: 0.55rem;
+  padding: 0.55rem 0.85rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: var(--accent-soft);
+  color: var(--text);
+  border-color: var(--line);
+}
+
+button:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+input[type="range"] {
+  width: 9rem;
+  accent-color: var(--accent);
+}
+
+#speed-value {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  min-width: 3.5rem;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+  width: min(100%, 18rem);
+  margin: 0 auto;
+}
+
+.cell {
+  aspect-ratio: 1;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(2rem, 10vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1;
+  background: var(--cell);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 0.65rem;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    transform 0.1s ease;
+}
+
+.cell:hover:not(:disabled) {
+  background: var(--cell-hover);
+}
+
+.cell:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+.cell.x {
+  color: var(--x);
+  text-shadow: 0 0 18px var(--x-glow);
+}
+
+.cell.o {
+  color: var(--o);
+  text-shadow: 0 0 18px var(--o-glow);
+}
+
+.cell.last:not(.winning) {
+  outline: 2px solid color-mix(in oklab, var(--accent) 70%, transparent);
+  outline-offset: -2px;
+}
+
+.cell.winning {
+  background: color-mix(in oklab, var(--accent) 22%, var(--cell));
+  animation: winPulse 1s ease-in-out infinite;
+}
+
+@keyframes winPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cell.winning {
+    animation: none;
+  }
+}
+
+.status {
+  margin: 0;
+  text-align: center;
+  font-family:
+    "Avenir Next",
+    "Segoe UI",
+    "PingFang TC",
+    "Noto Sans TC",
+    sans-serif;
+  font-weight: 650;
+  padding: 0.75rem 1rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+}
+
+.status[data-tone="x"] {
+  background: color-mix(in oklab, var(--x) 12%, var(--panel));
+}
+
+.status[data-tone="o"] {
+  background: color-mix(in oklab, var(--o) 12%, var(--panel));
+}
+
+.status[data-tone="draw"] {
+  background: var(--accent-soft);
+}

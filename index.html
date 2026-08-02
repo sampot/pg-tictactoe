@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="description"
+      content="瀏覽器井字遊戲：雙人、人機、AI 對 AI（Minimax）。可於 Playgrounds 當 SAM 開啟。"
+    />
+    <title>井字遊戲</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <header class="hero">
+        <h1>井字遊戲</h1>
+        <p class="tagline">三子連線即勝 · 支援雙人／人機／AI 對 AI</p>
+      </header>
+
+      <section class="toolbar" aria-label="對局控制">
+        <div class="meta">
+          <p>模式：<strong id="mode-label">雙人輪流</strong></p>
+          <p>當前回合：<strong id="turn-display">X</strong></p>
+        </div>
+        <div class="controls">
+          <button type="button" id="start-ai">開始 AI 對弈</button>
+          <button type="button" id="start-ai-vs-ai">AI 對 AI 自動對弈</button>
+          <button type="button" id="reset-game" class="secondary">
+            重新開始
+          </button>
+        </div>
+        <div class="control-group" id="speed-row" hidden>
+          <label for="speed-slider">對戰速度</label>
+          <input
+            type="range"
+            id="speed-slider"
+            min="200"
+            max="2000"
+            value="800"
+            step="100"
+          />
+          <span id="speed-value">800ms</span>
+        </div>
+      </section>
+
+      <div
+        class="game-board"
+        id="board"
+        role="grid"
+        aria-label="三乘三井字棋盤"
+      >
+        <button type="button" class="cell" role="gridcell" data-index="0"></button>
+        <button type="button" class="cell" role="gridcell" data-index="1"></button>
+        <button type="button" class="cell" role="gridcell" data-index="2"></button>
+        <button type="button" class="cell" role="gridcell" data-index="3"></button>
+        <button type="button" class="cell" role="gridcell" data-index="4"></button>
+        <button type="button" class="cell" role="gridcell" data-index="5"></button>
+        <button type="button" class="cell" role="gridcell" data-index="6"></button>
+        <button type="button" class="cell" role="gridcell" data-index="7"></button>
+        <button type="button" class="cell" role="gridcell" data-index="8"></button>
+      </div>
+
+      <p id="status" class="status" role="status">輪到 X，請選一格。</p>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
