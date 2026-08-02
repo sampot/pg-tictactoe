@@ -4,11 +4,11 @@
 
 也可當作 [Playgrounds（遊樂場）](https://samkuo.me/playgrounds/) 的 **SAM**（`index.html` 入口）。
 
-## 一鍵開啟 SAM 小
+## 一鍵開 SAM 小
 
 在遊樂場直接載入本儲存庫（需能連到 GitHub API）：
 
-**[一鍵開啟 SAM 小](https://samkuo.me/playgrounds/?open=sampot%2Fpg-tictactoe&name=%E4%BA%95%E5%AD%97%E9%81%8A%E6%88%B2)**
+**[一鍵開 SAM 小](https://samkuo.me/playgrounds/?open=sampot%2Fpg-tictactoe&name=%E4%BA%95%E5%AD%97%E9%81%8A%E6%88%B2)**
 
 等同網址：
 
