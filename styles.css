@@ -6,7 +6,8 @@
   --muted: #5c6570;
   --line: #d8dde3;
   --accent: #0f766e;
-  --on-accent: #f0fdfa;
+  /* Light text on dark teal — must stay high-contrast in light theme */
+  --on-accent: #ffffff;
   --accent-soft: color-mix(in oklab, var(--accent) 14%, var(--panel));
   --cell: #e8ecef;
   --cell-hover: color-mix(in oklab, var(--accent) 12%, var(--cell));
@@ -130,6 +131,11 @@ main {
     "Noto Sans TC",
     sans-serif;
   font-size: 0.9rem;
+}
+
+/* class { display:flex } otherwise beats the hidden attribute */
+.control-group[hidden] {
+  display: none !important;
 }
 
 button {
