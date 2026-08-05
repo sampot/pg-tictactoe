@@ -2,18 +2,18 @@
 
 瀏覽器井字遊戲（3×3）：雙人輪流、人機對弈、AI 對 AI（Minimax）。純前端，無建置步驟。
 
-也可當作 [Playgrounds（遊樂場）](https://samkuo.me/playgrounds/) 的 **SAM**（`index.html` 入口）。
+也可當作 [Playgrounds（遊樂場）](https://play.samkuo.me/) 的 **SAM**（`index.html` 入口）。
 
 ## 一鍵開 SAM 小
 
 在遊樂場直接載入本儲存庫（需能連到 GitHub API）：
 
-**[一鍵開 SAM 小](https://samkuo.me/playgrounds/?open=sampot%2Fpg-tictactoe&name=%E4%BA%95%E5%AD%97%E9%81%8A%E6%88%B2)**
+**[一鍵開 SAM 小](https://play.samkuo.me/?open=sampot%2Fpg-tictactoe&name=%E4%BA%95%E5%AD%97%E9%81%8A%E6%88%B2)**
 
 等同網址：
 
 ```
-https://samkuo.me/playgrounds/?open=sampot/pg-tictactoe&name=井字遊戲
+https://play.samkuo.me/?open=sampot/pg-tictactoe&name=井字遊戲
 ```
 
 同源會重用本機已匯入的沙盒；要強制新建可加 `&fresh=1`。
