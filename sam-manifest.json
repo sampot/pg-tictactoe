@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "rev": "2a2eeff",
+  "files": [
+    "app.js",
+    "functions.js",
+    "index.html",
+    "styles.css",
+    "tictactoe.js"
+  ]
+}
